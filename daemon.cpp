@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <syslog.h>
@@ -21,7 +20,7 @@ void daemonize()
   
   if(p_id < 0) exit(EXIT_FAILURE);
   if(p_id > 0) exit(EXIT_SUCCESS);
-  /*Make a call to umask in case you need to rwe priviligies*/
+  /*Make a call to umask in case you need rwe priviligies*/
   umask(0);
 
   openlog("my daemon", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL0);
@@ -40,7 +39,7 @@ void daemonize()
       exit(EXIT_FAILURE);
     }
 
-  /*Se cierran los standard file descriptors */
+  /*close standard file descriptors */
   close(STDIN_FILENO);
   close(STDOUT_FILENO);
   close(STDERR_FILENO);
