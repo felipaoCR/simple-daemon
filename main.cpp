@@ -7,7 +7,7 @@ int main()
   daemonize();
   while(true)
     {
-      syslog(LOG_NOTICE, "Application has successfully been daemonized");
+      syslog(LOG_NOTICE, "Daemon is now running ...");
       sleep(60);
     }
   closelog();
