@@ -39,7 +39,7 @@ void daemonize()
       exit(EXIT_FAILURE);
     }
 
-  /*close standard file descriptors */
+  /*close standard file descriptors. This won´t let users interact with the daemon */
   close(STDIN_FILENO);
   close(STDOUT_FILENO);
   close(STDERR_FILENO);
