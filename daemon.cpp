@@ -21,7 +21,7 @@ void daemonize()
   
   if(p_id < 0) exit(EXIT_FAILURE);
   if(p_id > 0) exit(EXIT_SUCCESS);
-  /*Make a call to umask in case you need rwe priviligies*/
+  /*Set umask to 0 in case the daemon needs its own mask's rwe priviligies*/
   umask(0);
 
   openlog("my daemon", LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL0);
